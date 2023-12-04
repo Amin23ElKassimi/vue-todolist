@@ -25,16 +25,16 @@
             <!-- Title -->
             <h1 class="text-center pt-3 mb-4 fw-bold">To Do List</h1>
             <!-- Input to add Item in the list -->
-            <div>
-                <input type="text">
+            <div class="text-center mb-2">
+                <input v-model="userNewTask" @keyup.enter="addNewTask(userNewTask)" id="in-Task" name="in-Task" type="text" placeholder="Enter new Task">
             </div>
             <!-- My To do List  -->
             <ul class="list-group">
                 <!-- Item of to Do list or Task for the user -->
-                <li v-for="(todoitem, index) in todoList" :key="index" class="todoitem list-group-item" :class="(todoitem.done == true) ? 'strikethrough' : ''" >
+                <li v-for="(todoitem, index) in todoList" :key="index" class="todoitem list-group-item"  :class="(todoitem.done == true) ? 'strikethrough' : ''" >
                     <div>{{todoitem.text}}</div>
                     <!-- Button To Splice Item from List -->
-                    <button @click="removeItem(index)" type="button" class="btn btn-danger">
+                    <button @click="removeTask(index)" type="button" class="btn btn-danger">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                   </li>

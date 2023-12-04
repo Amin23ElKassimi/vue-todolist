@@ -1,8 +1,4 @@
 
-
-
-
-
 // MILESTONE 1
 // Stampare all'interno di una lista HTML un item per ogni todo.
 //  Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
@@ -18,12 +14,6 @@
 //   il testo digitato viene letto e utilizzato per creare un nuovo todo,
 //    che quindi viene aggiunto alla lista dei todo esistenti.do corrispondente (se done era uguale a false,
 //      impostare true e viceversa) creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
-
-
-
-
-
-
 
 
 
@@ -48,15 +38,26 @@ createApp({
                 { text : 'Go to date',
                     done : false,
                 },
-            ]
-
+            ],
+            userNewTask : '',
+            taskObject : {},
         }
     },
     methods: {
-        removeItem(index){
+        removeTask(index){
             this.todoList.splice(index,1);
-            console.log(index);
         },
+
+        addNewTask(newTask){
+            // Values to push
+            this.taskObject.text = newTask;
+            this.taskObject.done = false;
+            // Filter Task
+            if ( newTask === this.todoList )
+            this.todoList.push(this.taskObject);
+            // console.log(newTask)
+            console.log(this.todoList);
+        }
 
     },
 }).mount('#app');
