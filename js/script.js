@@ -40,7 +40,6 @@ createApp({
                 },
             ],
             userNewTask : '',
-            taskObject : {},
         }
     },
     methods: {
@@ -50,11 +49,11 @@ createApp({
 
         addNewTask(newTask){
             // Values to push
-            this.taskObject.text = newTask;
-            this.taskObject.done = false;
+            const taskObject = {};
+            taskObject.text = newTask;
+            taskObject.done = false;
             // Filter Task
-            if ( newTask === this.todoList )
-            this.todoList.push(this.taskObject);
+            this.todoList.push(taskObject);
             // console.log(newTask)
             console.log(this.todoList);
         }
